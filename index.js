@@ -1,4 +1,8 @@
 const curso = require('./curso');
+const Aluno = require("./aluno");
+const elina = new Aluno("Elina Sousa", 2, [10,10,10,9]);
+elina.faltas();
+curso.adicionarAluno(elina);
 const listaEstudantes = curso.listaDeEstudantes;
 
 listaEstudantes.forEach((aluno) => {

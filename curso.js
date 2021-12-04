@@ -1,10 +1,19 @@
 const listaEstudantes = require('./estudantes');
 const Curso = {
+    listaDeEstudantes: listaEstudantes,
     nomeDoCurso: "Certified Tech Developer",
     notaDeAprovacao: 8,
     faltasMaximas: 2,
-    listaDeEstudantes: listaEstudantes,
-    adicionarAluno: (aluno) => {Curso.listaDeEstudantes.push(aluno)},
+    adicionarAluno: function(alunoNovo) {
+    const estudantes = this.listaDeEstudantes;
+    const novaListaAlunos = [];
+    estudantes.forEach(function(alunosAntigos) {
+        novaListaAlunos.push(alunosAntigos);
+    });
+    novaListaAlunos.push(alunoNovo);
+    this.listaDeEstudantes = novaListaAlunos;
+    return novaListaAlunos;     
+    },
     passouNaMateria: function(aluno) {
         const media = aluno.calcularMedia();
         const faltas = aluno.QuantidadeDeFaltas;
